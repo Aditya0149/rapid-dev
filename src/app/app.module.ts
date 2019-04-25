@@ -18,6 +18,9 @@ import { WebviewDirective } from './directives/webview.directive';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
+import { NodeComponent } from './components/node/node.component';
+import { CopydeckEditorComponent } from './components/copydeck-editor/copydeck-editor.component';
+import { NodeHostDirective } from './directives/node-host.directive';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -28,7 +31,10 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     HomeComponent,
-    WebviewDirective
+    WebviewDirective,
+    CopydeckEditorComponent,
+    NodeComponent,
+    NodeHostDirective
   ],
   imports: [
     BrowserModule,
@@ -43,6 +49,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     })
   ],
+  entryComponents: [ NodeComponent ],
   providers: [ElectronService],
   bootstrap: [AppComponent]
 })

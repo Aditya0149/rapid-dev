@@ -1,6 +1,9 @@
-import { app, BrowserWindow, screen } from 'electron';
+import { app, BrowserWindow, screen, ipcMain, dialog, Menu } from 'electron';
+//import { addBypassChecker} from 'electron-compile';
 import * as path from 'path';
 import * as url from 'url';
+
+
 
 let win, serve;
 const args = process.argv.slice(1);
@@ -77,3 +80,22 @@ try {
   // Catch Error
   // throw e;
 }
+let info = {
+  type: 'info',
+  title: 'Info',
+  message: "Hey",
+  buttons: ['Ok']
+}
+ipcMain.on("getFiles",(event,arg)=>{
+  dialog.showOpenDialog({
+    title : "Select files",
+    buttonLabel : "Select files",
+    filters: [ {name: 'yml', extensions: ['yml']} ],
+    properties: ['openFile', 'showHiddenFiles', 'multiSelections']
+  }, (files) => {
+    if (files) {
+      console.log("files",files);
+      event.sender.send('selectedFiles', files)
+    }
+  })
+});

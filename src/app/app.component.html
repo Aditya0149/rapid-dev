@@ -1,1 +1,16 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav">
+        <li class="nav-item" *ngFor="let navLink of navLinks">
+            <a class="nav-link" [routerLink]="navLink.path" >
+                {{navLink.name}}
+            </a>
+        </li>
+    </ul>
+</nav>
 <router-outlet></router-outlet>
+<div class="logger_component">
+    <div class="minimize" (click)="showLogs = !showLogs">Toggle Logs</div>
+    <div [ngClass]="{'colapse':!showLogs, 'logs':true}">
+        <div *ngFor="let log of loggerService.logs" class="log">{{log}}</div>
+    </div>
+</div>

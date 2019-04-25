@@ -31,4 +31,19 @@ export class ElectronService {
     return window && window.process && window.process.type;
   }
 
+  public on(channel: string, listener: any): void {
+    if (!this.ipcRenderer) {
+      return;
+    }
+    this.ipcRenderer.on(channel, listener);
+  }
+
+  public send(channel: string, ...args): void {
+    if (!this.ipcRenderer) {
+      return;
+    }
+    this.ipcRenderer.send(channel, ...args);
+  }
+
+
 }

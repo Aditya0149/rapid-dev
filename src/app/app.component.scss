@@ -1,0 +1,32 @@
+.logger_component {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20%;
+    border: 1px solid #000;
+}
+.logs {
+    height: 300px;
+    overflow: scroll;
+    font-size: 14px;
+    transition: height 0.5s ease-in-out; 
+    border: 1px solid #000;
+    &.colapse {
+       height: 0px; 
+       .minimize {
+           bottom: 0;
+       }
+    }
+}
+.minimize {
+    width: 100%;
+    cursor: pointer;
+    height: 20px;
+    background: grey;
+    text-align: center;
+    color: #fff;
+    
+}
+.log {
+    border-bottom: 1px solid #000;
+}
