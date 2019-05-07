@@ -8,9 +8,10 @@
     </ul>
 </nav>
 <router-outlet></router-outlet>
-<div class="logger_component">
-    <div class="minimize" (click)="showLogs = !showLogs">Toggle Logs</div>
+<div class="logger_component card">
+    <div class="minimize card-header" (click)="showLogs = !showLogs">Toggle Logs</div>
     <div [ngClass]="{'colapse':!showLogs, 'logs':true}">
-        <div *ngFor="let log of loggerService.logs" class="log">{{log}}</div>
+        <div *ngFor="let log of loggerService.logs; let i = index;" class="log card"><span class="index">{{i + 1}}</span><span>{{log}}</span></div>
+        <button type="button" class="btn-secondary btn clear_logs_btn" (click)="loggerService.logs = [];">Clear logs</button>
     </div>
 </div>

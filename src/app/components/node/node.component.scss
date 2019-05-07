@@ -1,0 +1,15 @@
+.subnodes {
+  padding-left: 2%;
+
+}
+.node {
+  border: 1px solid #000;
+  padding: 1% 0 1% 2%;
+  cursor: pointer;
+  &.unsaved {
+    background: #f00;
+  }
+  &.saved {
+    background: #0f0;
+  }
+}

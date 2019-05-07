@@ -22,6 +22,9 @@ import { NodeComponent } from './components/node/node.component';
 import { CopydeckEditorComponent } from './components/copydeck-editor/copydeck-editor.component';
 import { NodeHostDirective } from './directives/node-host.directive';
 
+//third party
+import { AngularEditorModule } from '@kolkov/angular-editor';
+
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -47,7 +50,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: (HttpLoaderFactory),
         deps: [HttpClient]
       }
-    })
+    }),
+    AngularEditorModule
   ],
   entryComponents: [ NodeComponent ],
   providers: [ElectronService],

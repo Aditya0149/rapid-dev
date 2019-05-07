@@ -1,5 +1,4 @@
-<div (click)="openNode()">
-    {{cdeNode.name}}
-    <ng-template appNodeHost></ng-template>
+<div (click)="onNodeClick()" class="node">
+    {{nodeData?.nodeName}}
 </div>
-
+<div class="subnodes"></div>

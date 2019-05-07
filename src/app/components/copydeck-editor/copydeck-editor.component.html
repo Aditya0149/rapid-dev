@@ -1,15 +1,11 @@
 <button (click)="openDirectory()" class="btn btn-primary btn-lg btn-block" >{{projectName}}</button>
 <div class="cdeWrapper">
-    <div class="list-group">
-            <div class="list-group-item" *ngFor="let cdeNode of cdeNodes; let i = index;" (click)="openFile(i)" >
-                <app-node  ></app-node>
-            </div>
-    <!-- <div [ngClass]="{'subnodes':true}" *ngIf="currentCdeNodeIndex == i" >
-            {{currentCdeNode | json}}   
-        </div> -->
+    <div class="list-group" id="node_list">
+
     </div>
-    
-    <div class="fileEditor card">
-    
+
+    <div class="fileEditor card" *ngIf="nodeService.nodeCopy">
+      <angular-editor [(ngModel)]="nodeService.currentEle.nodeData.data" [config]="config"></angular-editor>
+      <button type="button" (click)="nodeService.saveNode()">Save</button>
     </div>
 </div>
